@@ -24,17 +24,17 @@ class App {
     }
 
     initMiddlewares() {
+        const cacheTime = 86400000 * 30;
+        this.expressApp.use(
+            express.static(path.join(__dirname, "..", "public"), {
+                maxAge: cacheTime,
+            })
+        );
         this.expressApp.use(helmet());
         this.expressApp.use(cors());
         this.expressApp.use(
             fileUpload({
                 limits: { fileSize: 50 * 1024 * 1024 },
-            })
-        );
-        const cacheTime = 86400000 * 30;
-        this.expressApp.use(
-            express.static(path.join(__dirname, "..", "public"), {
-                maxAge: cacheTime,
             })
         );
     }
