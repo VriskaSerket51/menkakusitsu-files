@@ -3,6 +3,7 @@ import { Request, Response } from "express";
 import { HttpException } from "../../exceptions";
 import { UploadedFile } from "express-fileupload";
 import path from "path";
+import fs from "fs";
 
 class Files extends RouterBase {
     constructor() {
@@ -27,6 +28,10 @@ class Files extends RouterBase {
             throw new HttpException(400);
         }
         const handleFile = (file: UploadedFile) => {
+            const dir = path.join(__dirname, "..", "..", "..", "public");
+            if (!fs.existsSync(dir)) {
+                fs.mkdirSync(dir);
+            }
             const fileName = file.name;
             file.mv(path.join(__dirname, "..", "..", "..", "public", fileName));
         };
