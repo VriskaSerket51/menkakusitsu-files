@@ -1,9 +1,12 @@
+require("express-async-errors");
 import express from "express";
 import cors from "cors";
 import helmet from "helmet";
 import path from "path";
 import fileUpload from "express-fileupload";
 import { defaultRouter } from "./router";
+import { HttpException } from "./exceptions";
+import { errorHandler } from "./middlewares";
 
 class App {
     expressApp: express.Application;
@@ -12,7 +15,7 @@ class App {
         this.expressApp = express();
         this.initMiddlewares();
         this.initRouters();
-        this.initSocket();
+        this.initErrorHandlers();
     }
 
     run(
@@ -43,7 +46,13 @@ class App {
         this.expressApp.use("/", defaultRouter);
     }
 
-    initSocket() {}
+    
+    initErrorHandlers() {
+        this.expressApp.use((req, res) => {
+            throw new HttpException(404);
+        });
+        this.expressApp.use(errorHandler);
+    }
 }
 
 export default App;
