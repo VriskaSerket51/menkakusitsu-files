@@ -1,38 +1,7 @@
-import { Router, Request, Response, NextFunction } from "express";
-import config from "../config";
-import { HttpException } from "../exceptions";
-import { defaultErrorHandler } from "../utils/ErrorHandler";
-import { readAllFiles } from "../utils/Utility";
+import { Router } from "express";
+import { defaultModelMiddleware } from "../middlewares";
+import { readAllFiles } from "../utils";
 import { RouterBase } from "./RouterBase";
-
-const authMiddleware = (authType?: "access") => {
-    const middleware: ((
-        req: Request,
-        res: Response,
-        next: NextFunction
-    ) => any)[] = [];
-    switch (authType) {
-        case "access":
-            middleware.push((req, res, next) => {
-                try {
-                    const bearer = req.headers.authorization;
-                    if (!bearer || !bearer.startsWith("Bearer ")) {
-                        throw new HttpException(401);
-                    }
-                    if (bearer.split(" ")[1] != config.authKey) {
-                        throw new HttpException(403);
-                    }
-                    next();
-                } catch (error) {
-                    defaultErrorHandler(res, error);
-                }
-            });
-            break;
-        default:
-            break;
-    }
-    return middleware;
-};
 
 const createDefaultRouter = (): Router => {
     const defaultRouter = Router();
@@ -53,7 +22,7 @@ const createDefaultRouter = (): Router => {
         subrouter.models.forEach((model) => {
             router[model.method](
                 model.path,
-                ...authMiddleware(model.authType),
+                ...defaultModelMiddleware(model.authType),
                 model.controller
             );
         });
