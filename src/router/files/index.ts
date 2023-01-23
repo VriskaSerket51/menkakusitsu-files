@@ -1,9 +1,8 @@
-import { RouterBase } from "../RouterBase";
 import { Request, Response } from "express";
-import { HttpException } from "../../exceptions";
 import { UploadedFile } from "express-fileupload";
 import path from "path";
 import fs from "fs";
+import { HttpException, RouterBase } from "common-api-ts";
 
 class Files extends RouterBase {
     constructor() {

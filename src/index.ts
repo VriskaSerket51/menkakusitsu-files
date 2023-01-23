@@ -1,19 +1,28 @@
+import { App, logger } from "common-api-ts";
 import dotenv from "dotenv";
-import App from "./app";
+import path from "path";
 import config from "./config";
-import { logger } from "./utils/Logger";
+import {
+    authRouterMiddleware,
+    fileUploadMiddleware,
+    staticPathMiddleware,
+} from "./middlewares";
 
 dotenv.config();
-const port = parseInt(config.port);
 
 runExpressApp();
 
 function runExpressApp() {
-    const app = new App();
+    const app = new App(
+        path.join(__dirname, "router"),
+        [staticPathMiddleware, fileUploadMiddleware],
+        authRouterMiddleware,
+        []
+    );
     app.run(
-        port,
+        config.port,
         () => {
-            logger.info(`Server started with port: ${port}`);
+            console.info(`Server started with port: ${config.port}`);
         },
         (error) => {
             logger.error(error);
