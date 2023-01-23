@@ -6,7 +6,7 @@ import config from "../config";
 
 const cacheTime = 86400000 * 30;
 export const staticPathMiddleware = express.static(
-    path.join(__dirname, "..", "public"),
+    path.join(__dirname, "..", "..", "public"),
     {
         maxAge: cacheTime,
     }
