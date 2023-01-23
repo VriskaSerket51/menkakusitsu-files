@@ -14,6 +14,6 @@ if (process.env.NODE_ENV === "production") {
 }
 
 export default {
-    port: process.env.PORT!,
+    port: Number(process.env.PORT!),
     authKey: process.env.AUTH_KEY!,
 };
