@@ -27,7 +27,7 @@
         "ts-node": "^10.9.1"
     },
     "dependencies": {
-        "common-api-ts": "^1.0.5",
+        "common-api-ts": "^1.0.8",
         "cors": "^2.8.5",
         "cross-env": "^7.0.3",
         "dotenv": "^16.0.3",
