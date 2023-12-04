@@ -4,20 +4,19 @@
     "description": "",
     "main": "index.ts",
     "scripts": {
-        "test": "echo \"Error: no test specified\" && exit 1",
         "start": "cross-env NODE_ENV=production nodemon ./src/index.ts",
         "dev": "cross-env NODE_ENV=development nodemon --watch \"src/**/*.ts\" --exec \"ts-node\" src/index.ts"
     },
     "repository": {
         "type": "git",
-        "url": "git+https://github.com/COMMON-Jshs/menkakusitsu-files.git"
+        "url": "git+https://github.com/VriskaSerket51/menkakusitsu-files.git"
     },
     "author": "VriskaSerket51",
     "license": "ISC",
     "bugs": {
-        "url": "https://github.com/COMMON-Jshs/menkakusitsu-files/issues"
+        "url": "https://github.com/VriskaSerket51/menkakusitsu-files/issues"
     },
-    "homepage": "https://github.com/COMMON-Jshs/menkakusitsu-files#readme",
+    "homepage": "https://github.com/VriskaSerket51/menkakusitsu-files#readme",
     "devDependencies": {
         "@types/cors": "^2.8.12",
         "@types/express": "^4.17.14",
