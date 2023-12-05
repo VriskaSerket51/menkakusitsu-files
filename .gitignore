@@ -25,3 +25,7 @@ dist-ssr
 
 package-lock.json
 public
+
+# Env
+.env.development
+.env.production
