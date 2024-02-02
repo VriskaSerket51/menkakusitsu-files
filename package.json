@@ -1,8 +1,6 @@
 {
   "name": "menkakusitsu-files",
-  "version": "1.0.1",
-  "description": "",
-  "main": "index.ts",
+  "version": "1.0.0",
   "scripts": {
     "build": "rimraf dist/ && tsc",
     "start": "npm run build && cross-env NODE_ENV=production node ./dist/index.js",
@@ -13,7 +11,7 @@
     "url": "git+https://github.com/VriskaSerket51/menkakusitsu-files.git"
   },
   "author": "VriskaSerket51",
-  "license": "ISC",
+  "license": "GPL-3.0-only",
   "bugs": {
     "url": "https://github.com/VriskaSerket51/menkakusitsu-files/issues"
   },
