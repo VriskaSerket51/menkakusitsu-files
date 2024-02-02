@@ -1,41 +1,36 @@
 {
-    "name": "menkakusitsu-files",
-    "version": "1.0.1",
-    "description": "",
-    "main": "index.ts",
-    "scripts": {
-        "start": "cross-env NODE_ENV=production nodemon ./src/index.ts",
-        "dev": "cross-env NODE_ENV=development nodemon --watch \"src/**/*.ts\" --exec \"ts-node\" src/index.ts"
-    },
-    "repository": {
-        "type": "git",
-        "url": "git+https://github.com/VriskaSerket51/menkakusitsu-files.git"
-    },
-    "author": "VriskaSerket51",
-    "license": "ISC",
-    "bugs": {
-        "url": "https://github.com/VriskaSerket51/menkakusitsu-files/issues"
-    },
-    "homepage": "https://github.com/VriskaSerket51/menkakusitsu-files#readme",
-    "devDependencies": {
-        "@types/cors": "^2.8.12",
-        "@types/express": "^4.17.14",
-        "@types/express-fileupload": "^1.4.1",
-        "@types/node": "^18.11.0",
-        "nodemon": "^2.0.20",
-        "ts-node": "^10.9.1"
-    },
-    "dependencies": {
-        "common-api-ts": "^1.0.8",
-        "cors": "^2.8.5",
-        "cross-env": "^7.0.3",
-        "dotenv": "^16.0.3",
-        "express": "^4.18.2",
-        "express-async-errors": "^3.1.1",
-        "express-fileupload": "^1.4.0",
-        "helmet": "^6.0.0",
-        "typescript": "^4.9.3",
-        "winston": "^3.8.2",
-        "winston-daily-rotate-file": "^4.7.1"
-    }
+  "name": "menkakusitsu-files",
+  "version": "1.0.1",
+  "description": "",
+  "main": "index.ts",
+  "scripts": {
+    "build": "tsc",
+    "start": "cross-env NODE_ENV=production nodemon ./src/index.ts",
+    "dev": "cross-env NODE_ENV=development nodemon --watch \"src/**/*.ts\" --exec \"ts-node\" src/index.ts"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/VriskaSerket51/menkakusitsu-files.git"
+  },
+  "author": "VriskaSerket51",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/VriskaSerket51/menkakusitsu-files/issues"
+  },
+  "homepage": "https://github.com/VriskaSerket51/menkakusitsu-files#readme",
+  "devDependencies": {
+    "nodemon": "^3.0.3",
+    "ts-node": "^10.9.2"
+  },
+  "dependencies": {
+    "@types/cors": "^2.8.12",
+    "@types/express": "^4.17.14",
+    "@types/express-fileupload": "^1.4.1",
+    "@types/node": "^18.11.0",
+    "@ireves/common-api": "^1.4.4",
+    "cross-env": "^7.0.3",
+    "dotenv": "^16.0.3",
+    "express-fileupload": "^1.4.0",
+    "typescript": "^4.9.3"
+  }
 }
