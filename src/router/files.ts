@@ -13,12 +13,12 @@ class Files extends CommonApi.RouterBase {
         method: "post",
         path: "/upload",
         authType: "access",
-        controller: this.postFile,
+        controller: this.onPostFile,
       },
     ];
   }
 
-  async postFile(req: Request, res: Response) {
+  async onPostFile(req: Request, res: Response) {
     if (!req.files) {
       throw new CommonApi.HttpException(400);
     }
