@@ -2,7 +2,7 @@ import CommonApi from "@ireves/common-api";
 import express from "express";
 import fileUpload from "express-fileupload";
 import path from "path";
-import config from "../config";
+import config from "@/config";
 
 const cacheTime = 86400000 * 30;
 export const staticPathMiddleware = express.static(

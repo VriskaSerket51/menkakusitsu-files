@@ -2,9 +2,9 @@
   "name": "menkakusitsu-files",
   "version": "1.0.0",
   "scripts": {
-    "build": "rimraf dist/ && tsc",
+    "build": "rimraf dist/ && tsc && tsc-alias",
     "start": "npm run build && cross-env NODE_ENV=production node ./dist/index.js",
-    "dev": "cross-env NODE_ENV=development nodemon ./src/index.ts"
+    "dev": "cross-env NODE_ENV=development ts-node-dev --transpile-only --respawn -r tsconfig-paths/register --watch \"src/**/*.ts\" --trace-warnings --trace-uncaught -- ./src/index.ts"
   },
   "repository": {
     "type": "git",
@@ -17,9 +17,10 @@
   },
   "homepage": "https://github.com/VriskaSerket51/menkakusitsu-files#readme",
   "devDependencies": {
-    "nodemon": "^3.0.3",
     "rimraf": "^5.0.5",
-    "ts-node": "^10.9.2",
+    "ts-node-dev": "^2.0.0",
+    "tsc-alias": "^1.8.8",
+    "tsconfig-paths": "^4.2.0",
     "typescript": "^5.2.2"
   },
   "dependencies": {

@@ -1,12 +1,12 @@
 import CommonApi from "@ireves/common-api";
 import dotenv from "dotenv";
 import path from "path";
-import config from "./config";
+import config from "@/config";
 import {
   authRouterMiddleware,
   fileUploadMiddleware,
   staticPathMiddleware,
-} from "./middlewares";
+} from "@/middlewares";
 
 dotenv.config();
 

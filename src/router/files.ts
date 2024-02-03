@@ -1,8 +1,8 @@
+import CommonApi from "@ireves/common-api";
 import { Request, Response } from "express";
 import { UploadedFile } from "express-fileupload";
 import path from "path";
 import fs from "fs";
-import CommonApi from "@ireves/common-api";
 
 class Files extends CommonApi.RouterBase {
   constructor() {
